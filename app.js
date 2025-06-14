@@ -1,12 +1,19 @@
 window.addEventListener("load", () => {
- 
+  // (PART A) GET BGM
   const bgm = document.getElementById("bgm");
+
+  // (PART B) AUTOPLAY NOT ALLOWED - SHOW "PLAY BUTTON"
   if (bgm.paused) {
+    // (B1) GET "PLAY BUTTON"
     let play = document.getElementById("play");
+
+    // (B2) CLICK TO PLAY
     play.onclick = () => {
       bgm.play();
       play.classList.remove("show");
     };
+
+    // (B3) SHOW "PLAY BUTTON"
     play.classList.add("show");
   }
 });
@@ -68,16 +75,16 @@ const textNodes = [
   },
   {
     id: 2,
-    text: 'you venture forth looking for Ashely and come across the iconic merchant',
+    text: 'You venture forth looking for Ashely and come across the iconic merchant',
     options: [
       {
-        text: 'trade the treasure for a handgun',
+        text: 'Trade the treasure for a handgun',
         requiredState: (currentState) => currentState.treasure,
         setState: { treasure: false, handgun: true },
         nextText: 3
       },
       {
-        text: 'trade the treasure for a shotgun',
+        text: 'Trade the treasure for a shotgun',
         requiredState: (currentState) => currentState.treasure,
         setState: { treasure: false, shotgun: true },
         nextText: 3
@@ -90,25 +97,25 @@ const textNodes = [
   },
   {
     id: 3,
-    text: 'after leaving the merchant you start to feel tired and you are low hp somehow , you stumble upon a church next to a dangerous looking village',
+    text: 'After leaving the merchant you start to feel tired and you are low hp somehow , you stumble upon a church next to a dangerous looking village',
     options: [
       {
-        text: 'explore the church',
+        text: 'Explore the church',
         nextText: 4
       },
       {
-        text: 'explore the village',
+        text: 'Explore the village',
         nextText: 5
       },
       {
-        text: 'eat a green herb  and rest for a while',
+        text: 'Use a green herb  and rest for a while',
         nextText: 6
       }
     ]
   },
   {
     id: 4,
-    text: 'you are tired so you fall asleep exploring the church and are killed by the guards in your sleep.',
+    text: 'You are tired so you fall asleep exploring the church and are killed by the guards in your sleep.',
     options: [
       {
         text: 'Restart',
@@ -118,7 +125,7 @@ const textNodes = [
   },
   {
     id: 5,
-    text: ' you get cornered by the ganados in the village and end up dead because you fought them tired and low hp.',
+    text: ' You get cornered by the ganados in the village and end up dead because you fought them tired and low hp.',
     options: [
       {
         text: 'Restart',
@@ -138,19 +145,19 @@ const textNodes = [
   },
   {
     id: 7,
-    text: 'While exploring the church you come across a group ganados guards in your path to save Ashely.',
+    text: 'While exploring the church you come across a group of ganados guards in your path to save Ashely.',
     options: [
       {
         text: 'Try to run',
         nextText: 8
       },
       {
-        text: 'attack with ur handgun',
+        text: 'Attack with ur handgun',
         requiredState: (currentState) => currentState.handgun,
         nextText: 9
       },
       {
-        text: 'attack with ur shotgun',
+        text: 'Attack with ur shotgun',
         requiredState: (currentState) => currentState.shotgun,
         nextText: 10
       },
@@ -163,7 +170,7 @@ const textNodes = [
   },
   {
     id: 8,
-    text: 'ur attempts to run failed and you are dead.',
+    text: 'Your attempts to run failed and you are dead.',
     options: [
       {
         text: 'Restart',
@@ -173,7 +180,7 @@ const textNodes = [
   },
   {
     id: 9,
-    text: 'the handgun is too weak to handle all the guards so you end up out of ammo and consequently dead.',
+    text: 'The handgun is too weak to handle all the guards so you end up out of ammo and consequently dead.',
     options: [
       {
         text: 'Restart',
@@ -183,10 +190,10 @@ const textNodes = [
   },
   {
     id: 10,
-    text: 'the shotgun proves to be the right weapon against multiple enemies and you kill them all and save Ashely',
+    text: 'The shotgun proves to be the right weapon against multiple enemies and you kill them all and save Ashely',
     options: [
       {
-        text: 'Mission accomplished!',
+        text: 'Mission accomplished !',
         nextText: -1
       }
     ]
